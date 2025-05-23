@@ -1,76 +1,96 @@
-🎵 Music Genre Classification Using CNN
-This project implements a deep learning approach to automatically classify audio files into music genres using Convolutional Neural Networks (CNNs). It uses the GTZAN dataset and provides a working demo for genre prediction from uploaded audio files.
+# 🎵 Music Genre Classification Using CNN
 
-📌 Overview
-🎯 Goal: Predict the genre of a given audio track.
+This project implements a deep learning model to classify audio files into music genres using Convolutional Neural Networks (CNNs). Built using the GTZAN dataset, it also features a demo where users can upload audio files and receive genre predictions with confidence scores.
 
-🛠️ Technologies Used: Python, Librosa, Keras (TensorFlow backend), NumPy, Scikit-learn.
+---
 
-📁 Dataset: GTZAN Genre Collection – 1,000 audio files, 10 genres.
+## 📌 Overview
 
-🔍 Features
-Audio feature extraction using MFCCs.
+- **Objective**: Predict the genre of music from an input audio file.
+- **Technologies**: Python, Librosa, Keras, TensorFlow, NumPy, Scikit-learn.
+- **Dataset**: [GTZAN Genre Collection](http://marsyas.info/downloads/datasets.html) - 1,000 audio tracks across 10 genres.
 
-CNN-based classification model.
+---
 
-Upload & predict audio genre with confidence score.
+## 📁 Dataset Structure
 
-Real-time audio prediction demo.
+Ensure your GTZAN dataset is placed in this structure:
 
-Optionally visualize spectrograms (not implemented by default).
-
-📂 Dataset Structure
-Ensure the genres_original folder is extracted and structured like this:
-
-Copy
-Edit
 Data/
 └── genres_original/
-    ├── blues/
-    ├── classical/
-    ├── country/
-    ├── ...
-🚀 How to Run
-Mount Google Drive in Google Colab:
+├── blues/
+├── classical/
+├── country/
+├── disco/
+├── hiphop/
+├── jazz/
+├── metal/
+├── pop/
+├── reggae/
+└── rock/
 
-python
+yaml
 Copy
 Edit
-from google.colab import drive
-drive.mount('/content/drive')
-Set the dataset path:
 
-python
+You can extract the dataset from a `.zip` and place it in your Google Drive for Colab access.
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/music-genre-classification.git
+   cd music-genre-classification
+Install dependencies:
+
+bash
 Copy
 Edit
-dataset_path = "/content/drive/MyDrive/Data/genres_original"
-Extract MFCC features and train the CNN model.
+pip install librosa numpy scikit-learn tensorflow
+Open the notebook in Google Colab and run the cells step-by-step:
 
-Upload and predict audio genre:
+Mount Google Drive
 
-python
-Copy
-Edit
-from google.colab import files
-uploaded = files.upload()
-✅ Example Prediction Output
+Set the dataset path
+
+Extract MFCC features
+
+Train CNN model
+
+Upload audio files for prediction
+
+🧪 Example Prediction Output
+After uploading an audio file, the notebook returns:
+
 yaml
 Copy
 Edit
 🎶 Predicted Genre: hiphop (100.00% confidence)
 🎶 Predicted Genre: classical (87.08% confidence)
-📊 Model Performance
+🎶 Predicted Genre: metal (37.02% confidence)
+🎶 Predicted Genre: hiphop (99.86% confidence)
+🧠 Model Overview
+Model: Convolutional Neural Network (CNN)
+
+Input: MFCC features extracted from 30-second audio samples
+
+Output: One of 10 music genres
+
 Training Accuracy: 82.81%
 
 Validation Accuracy: 36.50%
 
-Issue: Overfitting due to small dataset size.
+Model shows overfitting — room for improvement using regularization and augmentation.
 
-📈 Possible Improvements
-Use larger or augmented dataset.
+🛠 Features
+🎧 MFCC feature extraction
 
-Apply regularization or advanced architectures.
+🧠 CNN-based classification
 
-Implement spectrogram visualization.
+📊 Accuracy and loss visualizations
 
-📝
+📁 Upload your own audio files for prediction
+
+🎼 Confidence score for predicted genre
