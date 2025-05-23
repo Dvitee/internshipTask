@@ -1,96 +1,62 @@
-# 🎵 Music Genre Classification Using CNN
+# 🎵 Music Genre Classification with CNN
 
-This project implements a deep learning model to classify audio files into music genres using Convolutional Neural Networks (CNNs). Built using the GTZAN dataset, it also features a demo where users can upload audio files and receive genre predictions with confidence scores.
+This project uses deep learning to classify music genres using the GTZAN dataset and a Convolutional Neural Network (CNN). It includes a Colab demo where users can upload audio files and receive predicted genres with confidence scores.
 
----
+## 📂 Dataset
 
-## 📌 Overview
+We use the [GTZAN dataset](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification?resource=download) consisting of 100 audio files for each of 10 genres:  
+`blues`, `classical`, `country`, `disco`, `hiphop`, `jazz`, `metal`, `pop`, `reggae`, `rock`
 
-- **Objective**: Predict the genre of music from an input audio file.
-- **Technologies**: Python, Librosa, Keras, TensorFlow, NumPy, Scikit-learn.
-- **Dataset**: [GTZAN Genre Collection](http://marsyas.info/downloads/datasets.html) - 1,000 audio tracks across 10 genres.
-
----
-
-## 📁 Dataset Structure
-
-Ensure your GTZAN dataset is placed in this structure:
-
+```
 Data/
 └── genres_original/
-├── blues/
-├── classical/
-├── country/
-├── disco/
-├── hiphop/
-├── jazz/
-├── metal/
-├── pop/
-├── reggae/
-└── rock/
+    ├── blues/
+    ├── classical/
+    └── ...
+```
 
-yaml
-Copy
-Edit
+## 🔧 Features
 
-You can extract the dataset from a `.zip` and place it in your Google Drive for Colab access.
+- MFCC feature extraction using `librosa`
+- CNN model using `Keras`
+- 80/20 train-validation split
+- Upload and predict genre of MP3/WAV files
+- Shows genre with confidence score
+
+## 🧠 Model Performance
+
+- **Training Accuracy**: 82.81%  
+- **Validation Accuracy**: 36.50%  
+- ✅ Working upload prediction demo
+
+Example:
+```
+🎶 Predicted Genre: hiphop (100.00% confidence)
+```
+
+## 🚀 How to Run
+
+1. Mount your Google Drive in Colab
+2. Place the dataset inside `/MyDrive/Data/genres_original/`
+3. Open and run `mgc.ipynb`
+4. Upload a test audio file and run the prediction cell
+
+## 🧪 Tools & Libraries
+
+- Python
+- Librosa
+- NumPy, Pandas
+- TensorFlow / Keras
+
+## 📈 Future Improvements
+
+- Reduce overfitting with regularization or more data
+- Add spectrogram-based CNN
+- Build a web-based front-end (e.g., Streamlit or Flask)
+
+
 
 ---
 
-## 🚀 Getting Started
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/music-genre-classification.git
-   cd music-genre-classification
-Install dependencies:
-
-bash
-Copy
-Edit
-pip install librosa numpy scikit-learn tensorflow
-Open the notebook in Google Colab and run the cells step-by-step:
-
-Mount Google Drive
-
-Set the dataset path
-
-Extract MFCC features
-
-Train CNN model
-
-Upload audio files for prediction
-
-🧪 Example Prediction Output
-After uploading an audio file, the notebook returns:
-
-yaml
-Copy
-Edit
-🎶 Predicted Genre: hiphop (100.00% confidence)
-🎶 Predicted Genre: classical (87.08% confidence)
-🎶 Predicted Genre: metal (37.02% confidence)
-🎶 Predicted Genre: hiphop (99.86% confidence)
-🧠 Model Overview
-Model: Convolutional Neural Network (CNN)
-
-Input: MFCC features extracted from 30-second audio samples
-
-Output: One of 10 music genres
-
-Training Accuracy: 82.81%
-
-Validation Accuracy: 36.50%
-
-Model shows overfitting — room for improvement using regularization and augmentation.
-
-🛠 Features
-🎧 MFCC feature extraction
-
-🧠 CNN-based classification
-
-📊 Accuracy and loss visualizations
-
-📁 Upload your own audio files for prediction
-
-🎼 Confidence score for predicted genre
+**Author**: Dviteesha Salgaonkar 
+GitHub: [@dvitee](https://github.com/dvitee)
